@@ -1,0 +1,21 @@
+# Pycache
+__pycache__/
+
+# Downloads
+downloads/
+
+# Config
+config/**/__pycache__/
+
+*__pycache__/
+.pytest_cache
+.DS_Store
+.vscode
+.idea
+.venv
+
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

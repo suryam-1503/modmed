@@ -1,0 +1,58 @@
+{
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "include_globs": [
+        "http://localhost:*/*",
+        "http://*.onelogin*/*",
+        "https://*.onelogin*/*"
+      ],
+      "js": ["contentPortal.js"],
+      "matches": ["http://*/*", "https://*/*"],
+      "run_at": "document_start"
+    },
+    {
+      "js": ["contentAll.js"],
+      "matches": ["http://*/*", "https://*/*"],
+      "run_at": "document_end"
+    },
+    {
+      "js": ["injectedMethodUS.js", "injectedMethodEU.js"],
+      "matches": ["http://*/*", "https://*/*"],
+      "run_at": "document_start"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  "description": "Single Sign-On for cloud lovers.",
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "icons": {
+    "128": "icons/normal/Icon-128.png",
+    "16": "icons/normal/Icon-16.png",
+    "48": "icons/normal/Icon-48.png"
+  },
+  "incognito": "split",
+  "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8q5UriLAV0ue7wiggQlSC3XEonT+eKoIdDtRFo+WgRO/woBis5X4aJMznQqap3cgdArzLeBsizOZ/gfP3d0G9fvZRnOhv9FFqvJgULTtSS9hI2IerZLu2Om9cI7S9pb48tYLBe2/7hpDpZqfpaBnZCRh4UEsX+4yKHgDDT9xYsQIDAQAB",
+  "manifest_version": 3,
+  "name": "OneLogin for Google Chrome",
+  "permissions": [
+    "storage",
+    "cookies",
+    "scripting",
+    "activeTab",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "webRequest",
+    "tabs",
+    "webNavigation"
+  ],
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "version": "4.0.11"
+}
