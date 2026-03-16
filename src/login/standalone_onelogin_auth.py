@@ -907,24 +907,3 @@ def create_browser_context(
     auth.__enter__()
     auth.authenticate()
     return auth
-
-
-# Example usage and testing
-if __name__ == "__main__":
-    # Setup logging
-    logging.basicConfig(level=logging.INFO)
-    
-    # Your OneLogin credentials
-    ONELOGIN_CREDENTIALS = {
-        "subdomain": "claritydgs",
-        "username": "huy@clarityrcm.com",
-        "password": "rogkuC-wijpyp-nexvy4",
-        "client_id": "a5f7dcea16c9c123da97b26eed76841a8796df8803a6b3f4798492902c2c91aa",
-        "client_secret": "3e8324d840488ac1b66be23fda281b295ce1148e3f002a105f250f75abcd8969"
-    }
-    
-    # Set environment variables
-    os.environ["ONELOGIN_CLIENT_ID"] = ONELOGIN_CREDENTIALS["client_id"]
-    os.environ["ONELOGIN_CLIENT_SECRET"] = ONELOGIN_CREDENTIALS["client_secret"]
-    os.environ["ONELOGIN_PORTAL_REDIRECT"] = "1"
-    
